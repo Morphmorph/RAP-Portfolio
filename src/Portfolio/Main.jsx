@@ -8,8 +8,8 @@ import tl from '../assets/telegram.png';
 
 function Main() {
   return (
-    
-    <div className='flex justify-center items-center p-5 xl:p-0 h-screen'>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+    <section className='flex justify-center items-center p-5 xl:p-0 lg:h-screen'>
       <div className='flex flex-col xl:flex-row justify-center items-center'>
         <div className='flex flex-col'>
         <div className='flex flex-col sm:flex-row '>
@@ -39,8 +39,8 @@ function Main() {
         <img src={img} alt="" className="z-10 h-2/3 w-2/3 md:h-1/2 md:w-1/2 xl:h-1/3 xl:w-1/3 rounded-full ml-0 xl:ml-20 mt-10 xl:mt-0 border-8 p-2 border-dashed" style={{ borderColor: '#DFD0B8'}}/>
       
       </div>
+      </section>
       </div>
-    
     
   );
 }
