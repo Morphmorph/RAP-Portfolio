@@ -9,6 +9,7 @@ module.exports = {
         'custom-font': 'Comic Sans MS',
       },
       screens: {
+        '2sm': '520px',
         '1sm': '446px',
         'sm': '640px',  // Small screens, like mobile
         'md': '768px',  // Medium screens, like tablets
