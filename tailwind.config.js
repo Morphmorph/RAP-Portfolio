@@ -10,7 +10,7 @@ module.exports = {
       },
       screens: {
         '2sm': '520px',
-        '1sm': '446px',
+        '1sm': '480px',
         'sm': '640px',  // Small screens, like mobile
         'md': '768px',  // Medium screens, like tablets
         'lg': '1024px', // Large screens, like laptops
