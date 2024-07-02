@@ -12,7 +12,7 @@ function Main() {
     <div className='flex justify-center items-center p-5 xl:p-0 h-screen'>
       <div className='flex flex-col xl:flex-row justify-center items-center'>
         <div className='flex flex-col w-full xl:w-1/2 h-full xl:h-1/2'>
-          <div className='flex flex-col sm:flex-row mt-10 xl:mt-0'>
+          <div className='flex flex-col sm:flex-row'>
             <p className='text-5xl' style={{ color: '#DFD0B8' }}>Hi, it's</p>
             <div className='ml-0 sm:ml-2 text-5xl capitalize' style={{ color: '#948979'}}>
             <TypeAnimation
