@@ -6,9 +6,9 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: "Barlow Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #153448;
@@ -17,4 +17,17 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* Hover effect for the item divs */
+.item-div:hover {
+  transform: scale(0.80);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the item divs */
+.btn:hover {
+  transform: scale(0.95);
+  background-color: #3C5B6F;
+  transition: transform 0.3s ease-in-out;
 }
