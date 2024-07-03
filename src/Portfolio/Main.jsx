@@ -54,7 +54,7 @@ const ScrollToTop = () => {
 function Main() {
   return (
     <div style={{ position: 'relative', overflow: 'auto' }}>
-      <div className='flex justify-center items-center p-5 xl:p-0 min-h-full md:min-h-screen'>
+      <div className='flex justify-center items-center p-5 xl:p-0 min-h-full 3sm:min-h-screen'>
         <div className='flex flex-col xl:flex-row justify-center items-center w-full'>
           <div className='flex flex-col w-full xl:w-1/2 '>
             <div className='flex flex-col sm:flex-row h-full'>
