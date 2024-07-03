@@ -12,22 +12,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #153448;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
-}
-
-/* Hover effect for the item divs */
-.item-div:hover {
-  transform: scale(0.80);
-  transition: transform 0.3s ease-in-out;
-}
-
-/* Hover effect for the item divs */
-.btn:hover {
-  transform: scale(0.95);
-  background-color: #3C5B6F;
-  transition: transform 0.3s ease-in-out;
 }
