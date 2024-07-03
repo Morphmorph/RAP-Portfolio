@@ -39,7 +39,8 @@ function Contact() {
     <section id="hire-me" className='flex flex-col items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{ color: '#DFD0B8' }}>Hire me</h1>
       <div className='flex flex-col-reverse lg:flex-row justify-center items-center w-full'>
-        <div className='flex flex-col h-auto w-full xl:w-1/2 contact m-5 rounded-lg p-5' style={{ borderWidth: '2px', borderColor: '#948979' }}>
+      <div className='mx-14 xl:mx-24'></div>
+        <div className='flex flex-col w-full lg:w-1/2 contact m-5 rounded-lg p-5 ' style={{ borderWidth: '2px', borderColor: '#948979' }}>
           <div className='flex flex-col 1sm:flex-row'>
             <CustomTextField
               label="Name"
@@ -70,7 +71,7 @@ function Contact() {
               options={servicesOptions}
             />
           </div>
-          <div className='flex flex-col my-5'>
+          <div className='flex flex-col mt-5'>
             <CustomTextArea
               label="Message"
               value={userData.message}
@@ -79,16 +80,17 @@ function Contact() {
               maxRows={4}
               helperText={errors['message']}
             />
-            <div className='w-auto h-auto flex justify-center md:justify-end'>
+            
+          </div>
+          <div className='w-auto flex justify-center md:justify-end'>
               <div className='border-2 py-2 px-3 rounded-full flex flex-row items-center justify-center btn' style={{ borderColor: '#DFD0B8' }} onClick={{}}>
                 <p className='text-2xl text-center' style={{ color: '#DFD0B8' }}>Send message</p>
                 <SendIcon className='send ml-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
               </div>
             </div>
-          </div>
         </div>
         <div className='mx-0 lg:mx-14'></div>
-        <div className='flex flex-wrap lg:flex-col justify-start w-full lg:w-1/4 items-start mt-10 xl:mt-0 '>
+        <div className='flex flex-wrap lg:flex-col justify-start w-full lg:w-1/2 items-start mt-10 xl:mt-0 '>
           <div className='flex flex-row-reverse hover mr-5 lg:mr-0'>
             <h1 className='text-2xl' style={{ color: '#DFD0B8' }}>Baungon, Bukidnon, 8707</h1>
             <LocationOnIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
