@@ -40,7 +40,7 @@ function Contact() {
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{ color: '#DFD0B8' }}>Hire me</h1>
       <div className='flex flex-col-reverse lg:flex-row justify-center items-center w-full'>
         <div className='flex flex-col h-auto xl:w-1/2 contact m-5 rounded-lg p-5' style={{ borderWidth: '2px', borderColor: '#948979' }}>
-          <div className='flex flex-row'>
+          <div className='flex flex-col 3sm:flex-row'>
             <CustomTextField
               label="Name"
               value={userData.name}
