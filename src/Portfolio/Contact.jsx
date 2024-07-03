@@ -36,7 +36,7 @@ function Contact() {
   ];
 
   return (
-    <div className='relative flex flex-col items-center p-5 xl:p-0 min-h-screen'>
+    <section id="hire-me" className='relative flex flex-col items-center p-5 xl:p-0 min-h-screen'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{ color: '#DFD0B8' }}>Hire me</h1>
       <div className='flex flex-col-reverse lg:flex-row justify-center items-center w-full'>
         <div className='flex flex-col h-auto xl:w-1/2 contact m-5 rounded-lg p-5' style={{ borderWidth: '2px', borderColor: '#948979' }}>
@@ -79,7 +79,7 @@ function Contact() {
               maxRows={4}
               helperText={errors['message']}
             />
-            <div className='w-auto h-auto flex justify-end'>
+            <div className='w-auto h-auto flex justify-center md:justify-end'>
               <div className='border-2 py-2 px-3 rounded-full flex flex-row items-center justify-center btn' style={{ borderColor: '#DFD0B8' }} onClick={{}}>
                 <p className='text-2xl text-center' style={{ color: '#DFD0B8' }}>Send message</p>
                 <SendIcon className='send ml-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
@@ -103,7 +103,7 @@ function Contact() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 
