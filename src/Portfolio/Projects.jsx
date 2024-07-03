@@ -52,7 +52,7 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className='flex flex-col justify-center w-full items-center p-5 xl:p-0 min-h-full md:min-h-screen'>
+    <section id="projects" className='flex flex-col justify-center w-full items-center p-5 xl:p-0 min-h-full my-24'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{color: '#DFD0B8'}}>Projects</h1>
       <div className='flex flex-col w-full justify-center items-start mt-10 p-2 Style' >
         {projects.map((project, index) => (
