@@ -2,7 +2,7 @@ import React from 'react';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/system';
 
-const StyledTextField = styled(TextField)(({ theme, error }) => ({
+const StyledTextArea = styled(TextField)(({ theme, error }) => ({
   '& .MuiOutlinedInput-root': {
     '& fieldset': {
       borderRadius: '10px',
@@ -12,48 +12,38 @@ const StyledTextField = styled(TextField)(({ theme, error }) => ({
     borderRadius: 10,
     color: '#DFD0B8',
     '&.Mui-focused fieldset': {
-      borderColor: '#DFD0B8',
+      borderColor: error ? '#780000' : '#DFD0B8',
     },
     '&:hover fieldset': {
-      borderColor: '#DFD0B8',
+      borderColor: error ? '#780000' : '#DFD0B8',
     },
-    '& input': {
+    '& textarea': {
       color: '#DFD0B8',
     },
   },
   '& .MuiInputLabel-root': {
     color: error ? '#780000' : '#DFD0B8',
     '&.Mui-focused': {
-      color: '#DFD0B8',
+      color: error ? '#780000' : '#DFD0B8',
     },
   },
   '& .MuiFormHelperText-root': {
     color: '#780000',
+    paddingBottom: '8px', // Add vertical padding when there's an error
   },
 }));
 
-function CustomTextField({ value, label, type, onChange, required, error, helperText, maxRows, ...rest }) {
-  const handleInputChange = (event) => {
-    if (type === 'numeric') {
-      // Remove non-numeric characters from input value
-      event.target.value = event.target.value.replace(/\D/g, '');
-    }
-    // Forward the event to the onChange handler
-    if (onChange) {
-      onChange(event);
-    }
-  };
-
+function CustomTextArea({ value, label, onChange, onFocus, required, error, helperText, maxRows, ...rest }) {
   return (
-    <StyledTextField
+    <StyledTextArea
       label={label}
       value={value || ''}
       variant="outlined"
       fullWidth
       multiline
       maxRows={maxRows} // Set the maximum number of rows
-      type={type}
-      onChange={handleInputChange}
+      onChange={onChange}
+      onFocus={onFocus}
       required={required}
       error={error}
       helperText={error ? helperText : ' '} // Ensure helper text remains to maintain layout
@@ -62,4 +52,4 @@ function CustomTextField({ value, label, type, onChange, required, error, helper
   );
 }
 
-export default CustomTextField;
+export default CustomTextArea;
