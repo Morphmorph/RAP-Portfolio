@@ -68,7 +68,7 @@ function Contact() {
               helperText={errors['email']}
             />
           </div>
-          <div className='flex flex-row'>
+          <div className=''>
             <CustomDropdown
               label="Service"
               value={userData.service}
@@ -80,7 +80,7 @@ function Contact() {
               options={servicesOptions}
             />
           </div>
-          <div className='flex flex-col mt-5'>
+          <div className='flex flex-col mt-8'>
             <CustomTextArea
               label="Message"
               value={userData.message}

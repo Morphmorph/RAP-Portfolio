@@ -33,15 +33,13 @@ const StyledTextArea = styled(TextField)(({ theme, error }) => ({
   },
 }));
 
-function CustomTextArea({ value, label, onChange, onFocus, required, error, helperText, maxRows, ...rest }) {
+function CustomTextArea({ value, label, onChange, onFocus, required, error, helperText, ...rest }) {
   return (
     <StyledTextArea
       label={label}
       value={value || ''}
       variant="outlined"
       fullWidth
-      multiline
-      maxRows={maxRows} // Set the maximum number of rows
       onChange={onChange}
       onFocus={onFocus}
       required={required}
