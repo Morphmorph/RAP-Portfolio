@@ -17,7 +17,7 @@ const ProjectItem = ({ image, title, description, technologies }) => (
     <img src={image} alt={title} className="h-44 w-44 p-5 rounded-lg ml-0 sm:ml-10 img mr-0 sm:mr-10" style={Style}/>
     <div className='flex flex-col items-center sm:items-start'>
       <h1 className='text-4xl sm:text-5xl text-center sm:text-start hover' style={{ color: '#DFD0B8' }}>{title}</h1>
-      <p className='text-3xl text-center sm:text-start hover' style={{ color: '#948979' }}>{description}</p>
+      <p className='text-3xl text-center sm:text-start' style={{ color: '#948979' }}>{description}</p>
       <div className='flex flex-wrap justify-center mt-5'>
         {technologies.map((tech, index) => (
           <h1 key={index} className='text-2xl p-2 rounded-full w-44 text-center btn mx-2 mb-2' style={{ color: '#DFD0B8', borderWidth: '1px', borderColor: '#DFD0B8'}}>
@@ -52,7 +52,7 @@ function Projects() {
   ];
 
   return (
-    <section id="projects" className='flex flex-col justify-center w-full items-center p-5 xl:p-0 min-h-full my-24'>
+    <section id="projects" className='flex flex-col justify-center w-full items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{color: '#DFD0B8'}}>Projects</h1>
       <div className='flex flex-col w-full justify-center items-start mt-10 p-2 Style' >
         {projects.map((project, index) => (

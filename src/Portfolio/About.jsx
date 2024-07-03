@@ -4,7 +4,7 @@ import { Link } from 'react-scroll'; // Import Link from react-scroll
 
 function About() {
   return (
-    <section id="about" className=' flex flex-col items-center p-5 xl:p-0 min-h-full my-24'>
+    <section id="about" className=' flex flex-col items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{ color: '#DFD0B8' }}>About</h1>
       <div className='flex text-center p-5'>
         <p className='text-4xl sm:text-5xl' style={{ color: '#948979' }}>

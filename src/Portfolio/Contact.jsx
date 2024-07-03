@@ -36,7 +36,7 @@ function Contact() {
   ];
 
   return (
-    <section id="hire-me" className='flex flex-col items-center p-5 xl:p-0 min-h-full my-24'>
+    <section id="hire-me" className='flex flex-col items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{ color: '#DFD0B8' }}>Hire me</h1>
       <div className='flex flex-col-reverse lg:flex-row justify-center items-center w-full'>
         <div className='flex flex-col h-auto xl:w-1/2 contact m-5 rounded-lg p-5' style={{ borderWidth: '2px', borderColor: '#948979' }}>
