@@ -42,7 +42,7 @@ function Experience() {
   ];
 
   return (
-    <section id="exp" className='relative flex flex-col items-center p-5 xl:p-0 min-h-screen'>
+    <section id="exp" className='relative flex flex-col items-center p-5 xl:p-0 min-h-full md:min-h-screen'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{color: '#DFD0B8'}}>Experience</h1>
       <div className='flex flex-col w-full justify-center items-center mt-10 p-2 Style' >
         {experience.map((experience, index) => (

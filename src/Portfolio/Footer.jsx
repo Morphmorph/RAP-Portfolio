@@ -6,7 +6,7 @@ import tl from '../assets/telegram.png';
 
 function Footer() {
   return (
-    <div className='flex flex-col justify-center w-full items-center p-5 xl:p-0 h-full' style={{backgroundColor: '#3C5B6F'}}>
+    <div className='flex flex-col justify-center w-full items-center p-5 xl:p-0 min-h-full' style={{backgroundColor: '#3C5B6F'}}>
         <h1 className='text-xl md:text-2xl uppercase' style={{color: '#DFD0B8'}}>© 2024 Portfolio</h1>
         <h1 className='text-xl md:text-2xl uppercase' style={{color: '#DFD0B8'}}>All rights reserved</h1>
     <div className='flex flex-row justify-center items-center p-2'>
