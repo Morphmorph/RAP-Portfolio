@@ -39,8 +39,8 @@ function Contact() {
     <section id="hire-me" className='flex flex-col items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
       <h1 className='text-5xl sm:text-7xl uppercase hover' style={{ color: '#DFD0B8' }}>Hire me</h1>
       <div className='flex flex-col-reverse lg:flex-row justify-center items-center w-full'>
-        <div className='flex flex-col h-auto xl:w-1/2 contact m-5 rounded-lg p-5' style={{ borderWidth: '2px', borderColor: '#948979' }}>
-          <div className='flex flex-col 3sm:flex-row'>
+        <div className='flex flex-col h-auto w-full xl:w-1/2 contact m-5 rounded-lg p-5' style={{ borderWidth: '2px', borderColor: '#948979' }}>
+          <div className='flex flex-col 1sm:flex-row'>
             <CustomTextField
               label="Name"
               value={userData.name}
@@ -87,8 +87,8 @@ function Contact() {
             </div>
           </div>
         </div>
-        <div className='mx-24'></div>
-        <div className='flex flex-wrap lg:flex-col justify-start w-full md:w-auto items-start mt-10 xl:mt-0 px-5 '>
+        <div className='mx-0 lg:mx-14'></div>
+        <div className='flex flex-wrap lg:flex-col justify-start w-full lg:w-1/4 items-start mt-10 xl:mt-0 '>
           <div className='flex flex-row-reverse hover mr-5 lg:mr-0'>
             <h1 className='text-2xl' style={{ color: '#DFD0B8' }}>Baungon, Bukidnon, 8707</h1>
             <LocationOnIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
