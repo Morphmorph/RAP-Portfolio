@@ -10,10 +10,34 @@ function Footer() {
         <h1 className='text-xl md:text-2xl uppercase' style={{color: '#DFD0B8'}}>© 2024 Portfolio</h1>
         <h1 className='text-xl md:text-2xl uppercase' style={{color: '#DFD0B8'}}>All rights reserved</h1>
     <div className='flex flex-row justify-center items-center p-2'>
-        <img src={fb} alt="" className="h-12 w-12 item-div" />
-        <img src={gh} alt="" className="h-12 w-12 ml-5 item-div" />
-        <img src={ln} alt="" className="h-12 w-12 ml-5 item-div" />
-        <img src={tl} alt="" className="h-12 w-12 ml-5 item-div" />
+    <a
+                  href="https://www.facebook.com/ricknearohn.pacana.3/" // Replace with your Facebook profile link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={fb} alt="Facebook" className="h-12 w-12 item-div" />
+                </a>
+                <a
+                  href="https://github.com/Morphmorph" // Replace with your GitHub profile link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={gh} alt="GitHub" className="h-12 w-12 ml-5 item-div" />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/rickne-arohn-pacana-948b67254/" // Replace with your LinkedIn profile link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={ln} alt="LinkedIn" className="h-12 w-12 ml-5 item-div" />
+                </a>
+                <a
+                  href="https://t.me/ricknearohn" // Replace with your Telegram profile link
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={tl} alt="Telegram" className="h-12 w-12 ml-5 item-div" />
+                </a>
       </div>
     </div>
   )

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import CustomTextField from './component/CustomTextField';
 import CustomDropdown from './component/CustomDropdown';
 import CustomTextArea from './component/CustomTextArea';
@@ -6,6 +7,8 @@ import SendIcon from '@mui/icons-material/Send';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
+import CircularProgress from '@mui/material/CircularProgress';
+import { notifySuccess, notifyError } from './component/CustomToastify';
 
 function Contact() {
   const [userData, setUserData] = useState({
@@ -15,31 +18,83 @@ function Contact() {
     message: ''
   });
   const [errors, setErrors] = useState({});
+  const [loading, setLoading] = useState(false);
+
+  const validateForm = () => {
+    let isValid = true;
+    const newErrors = {};
+
+    if (!userData.name.trim()) {
+      newErrors.name = 'Name is required';
+      isValid = false;
+    }
+
+    if (!userData.email.trim()) {
+      newErrors.email = 'Email is required';
+      isValid = false;
+    } else if (!/\S+@\S+\.\S+/.test(userData.email)) {
+      newErrors.email = 'Email is invalid';
+      isValid = false;
+    }
+
+    if (!userData.service) {
+      newErrors.service = 'Service is required';
+      isValid = false;
+    }
+
+    if (!userData.message.trim()) {
+      newErrors.message = 'Message is required';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+    return isValid;
+  };
 
   const handleInputChange = (e, field) => {
     const { value } = e.target;
     setUserData({ ...userData, [field]: value });
 
-    // Error handling
-    if (value.trim() === '') {
-      setErrors({ ...errors, [field]: `${field} is required` });
-    } else {
-      const newErrors = { ...errors };
-      delete newErrors[field];
-      setErrors(newErrors);
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
     }
   };
 
   const handleInputFocus = (field) => {
-    const newErrors = { ...errors };
-    delete newErrors[field];
-    setErrors(newErrors);
+    if (errors[field]) {
+      setErrors({ ...errors, [field]: '' });
+    }
   };
 
   const servicesOptions = [
     { value: 'web_development', label: 'Web Development' },
     { value: 'mobile_development', label: 'Mobile Development' },
   ];
+  
+  const handleSubmit = async () => {
+    if (loading) return; // Prevent multiple submissions
+
+    if (validateForm()) {
+      setLoading(true);
+
+      try {
+        const response = await emailjs.send('service_6oosfz8', 'template_t9av2do', userData, 'sPAsevpVQfDzvQ4ul');
+        console.log('Success:', response);
+        notifySuccess('Message sent successfully');
+        setUserData({
+          name: '',
+          email: '',
+          service: null,
+          message: ''
+        });
+      } catch (error) {
+        console.error('Error:', error);
+        notifyError('Failed to send message');
+      } finally {
+        setLoading(false);
+      }
+    }
+  };
 
   return (
     <section id="hire-me" className='flex flex-col items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
@@ -92,10 +147,24 @@ function Contact() {
             />
           </div>
           <div className='w-auto flex justify-center md:justify-end'>
-            <div className='border-2 py-2 px-3 rounded-full flex flex-row items-center justify-center btn' style={{ borderColor: '#DFD0B8' }} onClick={{}}>
-              <p className='text-2xl text-center' style={{ color: '#DFD0B8' }}>Send message</p>
-              <SendIcon className='send ml-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
-            </div>
+            <button
+              className='border-2 py-2 px-3 rounded-full flex flex-row items-center justify-center btn'
+              style={{ borderColor: '#DFD0B8' }}
+              onClick={handleSubmit}
+              disabled={loading} // Disable button when loading
+            >
+              {loading ? (
+                <>
+                  <p className='text-2xl text-center' style={{ color: '#DFD0B8' }}>Sending...</p>
+                  <CircularProgress className='ml-2' size={24} style={{ color: '#DFD0B8' }} />
+                </>
+              ) : (
+                <>
+                  <p className='text-2xl text-center' style={{ color: '#DFD0B8' }}>Send message</p>
+                  <SendIcon className='send ml-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
+                </>
+              )}
+            </button>
           </div>
         </div>
         <div className='mx-0 lg:mx-14'></div>

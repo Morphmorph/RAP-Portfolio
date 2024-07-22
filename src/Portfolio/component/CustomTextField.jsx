@@ -40,6 +40,7 @@ function CustomTextArea({ value, label, onChange, onFocus, required, error, help
       value={value || ''}
       variant="outlined"
       fullWidth
+      autoComplete="off"
       onChange={onChange}
       onFocus={onFocus}
       required={required}
