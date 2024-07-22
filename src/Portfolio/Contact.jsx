@@ -82,8 +82,8 @@ function Contact() {
         console.log('Success:', response);
         notifySuccess('Message sent successfully');
         setUserData({
-          name: '',
-          email: '',
+          name: userData.name,
+          email: userData.email,
           service: null,
           message: ''
         });
