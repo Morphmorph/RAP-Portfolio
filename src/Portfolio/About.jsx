@@ -50,7 +50,7 @@ function About() {
           style={{ textDecoration: 'none', color: '#153448' }}
         >
           <h1 className='text-7xl mr-5 sm:mr-2' style={{ color: '#DFD0B8' }}>3</h1>
-          <p className='text-2xl font-semibold' style={{ color: '#153448' }}>Project completed</p>
+          <p className='text-2xl font-semibold' style={{ color: '#153448' }}>Projects completed</p>
           <ArrowCircleUpIcon className='absolute right-0 bottom-0 m-1 icon' sx={{ fontSize: 40, color: '#DFD0B8' }} />
         </Link>
       </div>
