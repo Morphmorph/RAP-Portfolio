@@ -71,7 +71,7 @@ function Main() {
   };
 
   return (
-    <div style={{ position: 'relative', overflow: 'auto' }}>
+    <div style={{ position: 'relative', overflow: 'hidden' }}>
       <div className='flex justify-center items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'>
         <div className='flex flex-col xl:flex-row justify-center items-center w-full'>
           <div className='flex flex-col w-full xl:w-1/2'>
