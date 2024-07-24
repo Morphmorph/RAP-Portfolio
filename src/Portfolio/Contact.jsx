@@ -25,6 +25,8 @@ const popUp2 = {
 
 const Contact = () => {
   const [sectionRef, inView] = useInView({ threshold: 0.1 });
+  const [formRef, formInView] = useInView({ threshold: 0.1 });
+  const [infoRef, infoInView] = useInView({ threshold: 0.1 });
   const [userData, setUserData] = useState({
     name: '',
     email: '',
@@ -136,7 +138,10 @@ const Contact = () => {
         <motion.div
           className='flex flex-col w-full lg:w-1/2 contact m-5 rounded-lg p-5'
           style={{ borderWidth: '2px', borderColor: '#948979' }}
+          ref={formRef}
           variants={popUp}
+          initial="hidden"
+          animate={formInView ? "visible" : "hidden"}
           transition={{ duration: 1.2 }}
         >
           <div className='flex flex-col 1sm:flex-row'>
@@ -209,26 +214,41 @@ const Contact = () => {
           </div>
         </motion.div>
         <div className='mx-0 lg:mx-14'></div>
-        <motion.div
-          className='flex flex-wrap lg:flex-col justify-start w-full lg:w-1/2 items-start mt-10 xl:mt-0'
-          variants={popUp2}
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          transition={{ duration: 1.2 }}
-        >
-          <div className='flex flex-row-reverse hover mr-5 lg:mr-0'>
+        <div className='flex flex-wrap lg:flex-col justify-start w-full lg:w-1/2 items-start mt-10 xl:mt-0'>
+          <motion.div 
+            className='flex flex-row-reverse hover mr-5 lg:mr-0'
+            ref={infoRef}
+            variants={popUp2}
+            initial="hidden"
+            animate={infoInView ? "visible" : "hidden"}
+            transition={{ duration: 1.2 }}
+          >
             <h1 className='text-2xl' style={{ color: '#DFD0B8' }}>Baungon, Bukidnon, 8707</h1>
             <LocationOnIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
-          </div>
-          <div className='flex flex-row-reverse my-5 1sm:my-0 lg:my-5 hover mr-5 lg:mr-0'>
+          </motion.div>
+          <motion.div 
+            className='flex flex-row-reverse my-5 1sm:my-0 lg:my-5 hover mr-5 lg:mr-0'
+            ref={infoRef}
+            variants={popUp2}
+            initial="hidden"
+            animate={infoInView ? "visible" : "hidden"}
+            transition={{ duration: 1.4 }}
+          >
             <h1 className='text-2xl' style={{ color: '#DFD0B8' }}>arohnpacana@gmail.com</h1>
             <EmailIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
-          </div>
-          <div className='flex flex-row-reverse hover'>
+          </motion.div>
+          <motion.div 
+            className='flex flex-row-reverse hover'
+            ref={infoRef}
+            variants={popUp2}
+            initial="hidden"
+            animate={infoInView ? "visible" : "hidden"}
+            transition={{ duration: 1.6 }}
+          >
             <h1 className='text-2xl' style={{ color: '#DFD0B8' }}>(+63) 951 010 9974</h1>
             <PhoneIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
-          </div>
-        </motion.div>
+          </motion.div>
+        </div>
       </motion.div>
     </motion.section>
   );

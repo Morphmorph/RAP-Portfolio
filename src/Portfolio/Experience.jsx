@@ -23,68 +23,73 @@ const popUp2 = {
   visible: { opacity: 1, x: 0 }
 };
 
-const ProjectItem = ({ image, title, company, address, position, time, inView }) => (
-  <motion.div
-    className='flex flex-col sm:flex-row my-5 items-center sm:items-start'
-    variants={popUp}
-    initial="hidden"
-    animate={inView ? "visible" : "hidden"}
-    transition={{ duration: 1 }}
-  >
-    <motion.img 
-      src={image} 
-      alt={title} 
-      className="h-44 w-44 p-5 rounded-lg img mr-0 sm:mr-10" 
-      style={Style}
+const ExperienceItem = ({ image, title, company, address, position, time }) => {
+  const [ref, inView] = useInView({ threshold: 0.1 });
+
+  return (
+    <motion.div
+      ref={ref}
+      className='flex flex-col sm:flex-row my-5 items-center sm:items-start'
       variants={popUp}
-      transition={{ duration: 1}}
-    />
-    <div className='flex flex-col items-center sm:items-start'>
-      <motion.h1 
-        className='text-4xl sm:text-5xl text-center sm:text-start ' 
-        style={{ color: '#DFD0B8' }}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      transition={{ duration: 1 }}
+    >
+      <motion.img 
+        src={image} 
+        alt={title} 
+        className="h-44 w-44 p-5 rounded-lg img mr-0 sm:mr-10" 
+        style={Style}
         variants={popUp}
-        transition={{ duration: 1.5 }}
-      >
-        {title}
-      </motion.h1>
-      <motion.p 
-        className='text-3xl text-center sm:text-start ' 
-        style={{ color: '#948979' }}
-        variants={popUp}
-        transition={{ duration: 1.7 }}
-      >
-        {company}
-      </motion.p>
-      <motion.p 
-        className='text-3xl text-center sm:text-start ' 
-        style={{ color: '#948979' }}
-        variants={popUp}
-        transition={{ duration: 1.9 }}
-      >
-        {address}
-      </motion.p>
-      <motion.p 
-        className='text-3xl text-center sm:text-start ' 
-        style={{ color: '#DFD0B8' }}
-        variants={popUp}
-        transition={{ duration: 2.1 }}
-      >
-        {position}
-      </motion.p>
-      <div className='flex flex-wrap justify-center mt-5'>
+        transition={{ duration: 1 }}
+      />
+      <div className='flex flex-col items-center sm:items-start'>
         <motion.h1 
-          className='text-2xl p-2 rounded-full w-44 text-center btn mx-2 mb-2' 
-          style={{ color: '#DFD0B8', borderWidth: '1px', borderColor: '#DFD0B8'}}
-          variants={popUp2}
+          className='text-4xl sm:text-5xl text-center sm:text-start ' 
+          style={{ color: '#DFD0B8' }}
+          variants={popUp}
           transition={{ duration: 1.5 }}
         >
-          {time}
+          {title}
         </motion.h1>
+        <motion.p 
+          className='text-3xl text-center sm:text-start ' 
+          style={{ color: '#948979' }}
+          variants={popUp}
+          transition={{ duration: 1.7 }}
+        >
+          {company}
+        </motion.p>
+        <motion.p 
+          className='text-3xl text-center sm:text-start ' 
+          style={{ color: '#948979' }}
+          variants={popUp}
+          transition={{ duration: 1.9 }}
+        >
+          {address}
+        </motion.p>
+        <motion.p 
+          className='text-3xl text-center sm:text-start ' 
+          style={{ color: '#DFD0B8' }}
+          variants={popUp}
+          transition={{ duration: 2.1 }}
+        >
+          {position}
+        </motion.p>
+        <div className='flex flex-wrap justify-center mt-5'>
+          <motion.h1 
+            className='text-2xl p-2 rounded-full w-44 text-center btn mx-2 mb-2' 
+            style={{ color: '#DFD0B8', borderWidth: '1px', borderColor: '#DFD0B8'}}
+            variants={popUp2}
+            transition={{ duration: 1.5 }}
+          >
+            {time}
+          </motion.h1>
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 function Experience() {
   const [sectionRef, inView] = useInView({ threshold: 0.1 });
@@ -131,7 +136,7 @@ function Experience() {
         animate={inView ? "visible" : "hidden"}
       >
         {experience.map((exp, index) => (
-          <ProjectItem
+          <ExperienceItem
             key={index}
             image={exp.image}
             title={exp.title}
@@ -139,7 +144,6 @@ function Experience() {
             address={exp.address}
             position={exp.position}
             time={exp.time}
-            inView={inView}
           />
         ))}
       </motion.div>

@@ -37,62 +37,65 @@ const containerVariants = {
   }
 };
 
-const ProjectItem = ({ image, title, description, technologies, link, sectionRef, inView }) => (
-  <motion.div
-    ref={sectionRef}
-    className='flex flex-col sm:flex-row my-5 items-center sm:items-start'
-    variants={popUp}
-    initial="hidden"
-    animate={inView ? "visible" : "hidden"}
-    transition={{ duration: 1 }}
-  >
-    <motion.img 
-      src={image} 
-      alt={title} 
-      className="h-44 w-44 p-5 rounded-lg ml-0 sm:ml-10 img mr-0 sm:mr-10" 
-      style={Style}
+const ProjectItem = ({ image, title, description, technologies, link }) => {
+  const [ref, inView] = useInView({ threshold: 0.1 });
+  return (
+    <motion.div
+      ref={ref}
+      className='flex flex-col sm:flex-row my-5 items-center sm:items-start'
       variants={popUp}
-      transition={{ duration: 1.5 }}
-    />
-    <div className='flex flex-col items-center sm:items-start'>
-      <motion.a 
-        href={link} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className='text-4xl sm:text-5xl text-center sm:text-start hover' 
-        style={{ color: '#DFD0B8' }}
-        variants={popUp}
-        transition={{ duration: 1.8 }}
-      >
-        {title}
-      </motion.a>
-      <motion.p 
-        className='text-3xl text-center sm:text-start' 
-        style={{ color: '#948979' }}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      transition={{ duration: 1 }}
+    >
+      <motion.img 
+        src={image} 
+        alt={title} 
+        className="h-44 w-44 p-5 rounded-lg ml-0 sm:ml-10 img mr-0 sm:mr-10" 
+        style={Style}
         variants={popUp}
         transition={{ duration: 1.5 }}
-      >
-        {description}
-      </motion.p>
-      <div className='flex flex-wrap justify-center mt-5'>
-        {technologies.map((tech, index) => (
-          <motion.a 
-            key={index} 
-            href={tech.link} 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className='text-2xl p-2 rounded-full w-44 text-center btn mx-2 mb-2' 
-            style={{ color: '#DFD0B8', borderWidth: '1px', borderColor: '#DFD0B8'}}
-            variants={popUp2}
-            transition={{ duration: 1.5 + (index * 0.1) }}
-          >
-            {tech.name}
-          </motion.a>
-        ))}
+      />
+      <div className='flex flex-col items-center sm:items-start'>
+        <motion.a 
+          href={link} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className='text-4xl sm:text-5xl text-center sm:text-start hover' 
+          style={{ color: '#DFD0B8' }}
+          variants={popUp}
+          transition={{ duration: 1.8 }}
+        >
+          {title}
+        </motion.a>
+        <motion.p 
+          className='text-3xl text-center sm:text-start' 
+          style={{ color: '#948979' }}
+          variants={popUp}
+          transition={{ duration: 1.5 }}
+        >
+          {description}
+        </motion.p>
+        <div className='flex flex-wrap justify-center mt-5'>
+          {technologies.map((tech, index) => (
+            <motion.a 
+              key={index} 
+              href={tech.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className='text-2xl p-2 rounded-full w-44 text-center btn mx-2 mb-2' 
+              style={{ color: '#DFD0B8', borderWidth: '1px', borderColor: '#DFD0B8'}}
+              variants={popUp2}
+              transition={{ duration: 1.5 + (index * 0.1) }}
+            >
+              {tech.name}
+            </motion.a>
+          ))}
+        </div>
       </div>
-    </div>
-  </motion.div>
-);
+    </motion.div>
+  );
+};
 
 function Projects() {
   const [sectionRef, inView] = useInView({ threshold: 0.1 });

@@ -14,8 +14,27 @@ const popUp = {
   visible: { opacity: 1, y: 0 }
 };
 
+const TechnologyItem = ({ image, index }) => {
+  const [ref, inView] = useInView({ threshold: 0.1 });
+
+  return (
+    <motion.img 
+      ref={ref}
+      src={image} 
+      alt="" 
+      className="h-28 w-28 sm:h-44 sm:w-44 p-5 rounded-lg ml-0 sm:ml-10 img mr-0 sm:mr-10 Style" 
+      variants={popUp}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      transition={{ duration: 1.5 + (index * 0.2) }}
+    />
+  );
+};
+
 function Technology() {
   const [sectionRef, inView] = useInView({ threshold: 0.1 });
+
+  const images = [img, img2, img3, img4, img5];
 
   return (
     <motion.section
@@ -33,14 +52,11 @@ function Technology() {
         initial="hidden"
       />
       <div className='flex flex-wrap justify-center w-full mt-10 p-2 Style'>
-        {[img, img2, img3, img4, img5].map((image, index) => (
-          <motion.img 
+        {images.map((image, index) => (
+          <TechnologyItem 
             key={index}
-            src={image} 
-            alt="" 
-            className="h-28 w-28 sm:h-44 sm:w-44 p-5 rounded-lg ml-0 sm:ml-10 img mr-0 sm:mr-10 Style" 
-            variants={popUp}
-            transition={{ duration: 1.5 + (index * 0.2) }}
+            image={image}
+            index={index}
           />
         ))}
       </div>
