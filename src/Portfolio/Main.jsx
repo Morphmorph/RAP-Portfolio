@@ -200,7 +200,8 @@ function Main() {
               </motion.div>
 
               {/* Social Icons as a row in small screens, wrap on large */}
-              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0">
+              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0 w-full max-w-[300px] mx-auto">
+
               {socialItems.map((item, index) => {
               if (item.type === 'icon') {
                 return (
