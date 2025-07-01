@@ -39,18 +39,28 @@
 }
 
 /* Hover effect for the item divs */
+.item-div {
+  border-width: 1px;
+  border-color: #DFD0B8;
+  border-radius: 100%;
+}
+
 .item-div:hover {
-  transform: scale(0.80);
+  transform: scale(0.98);
   transition: transform 0.3s ease-in-out;
+  border-color: #00c04b;
+  border-width: 1px;
   cursor: pointer;
 }
 
 /* Hover effect for the item divs */
 
 .btn:hover {
-  transform: scale(0.95);
-  background-color: #3C5B6F;
+  transform: scale(0.98);
+  color: #00c04b;
   transition: transform 0.3s ease-in-out;
+  border-width: 2px;
+  border-color: #00c04b;
   cursor: pointer;
 }
 
@@ -62,17 +72,20 @@
   
 }
 
-.nav-option:hover {
- border-width: 0px 0px 2px 0px;
- border: 100%;
- border-top-right-radius: 5px;
- border-top-left-radius: 5px;
- background-color: #3C5B6F;
- border-color: #948979;
- transform: scale(1.03);
- transition: transform 0.1s ease-in-out;
- cursor: pointer;
+.nav-option {
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease-in-out;
 }
+
+.nav-option:hover {
+  border-bottom-width: 1px;
+  color: #00c04b;             
+  border-bottom-color: #00c04b;  
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  
+}
+
 
 .icon {
   transform: rotate(135deg);
@@ -115,10 +128,15 @@
   transition: transform 0.3s ease-in-out; 
 }
 
-.hover:hover {
-  transform: scale(0.95);
-  border-bottom-width: 2px;
-  border-color: '#3C5B6F';
+.arrow-up{
+  border-width: 1px solid transparent;
+  border-radius: 100%;
+  color: #DFD0B8;
+}
+
+.arrow-up:hover {
+  transform: scale(1.08);
+  color: #00c04b;
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
 }
@@ -129,3 +147,28 @@
   right: 20px;
   z-index: 1000; /* Ensure it's above other content */
 }
+
+.gradient-circle {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  width: 700px;
+  height: 700px;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(from 0deg, #00c04b, #dfd0b8, #00c04b);
+  border-radius: 50%;
+  z-index: -1;
+  animation: rotateGradient 10s linear infinite;
+  filter: blur(90px);
+  opacity: 0.35;
+}
+
+@keyframes rotateGradient {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+

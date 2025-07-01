@@ -16,6 +16,7 @@ module.exports = {
         'md': '768px',  // Medium screens, like tablets
         'lg': '1024px', // Large screens, like laptops
         'xl': '1080px', // Extra-large screens, like desktops
+        'xxl': '1180px',
         '2xl': '1536px',
       },
     },

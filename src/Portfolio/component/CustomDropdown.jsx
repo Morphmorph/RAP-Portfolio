@@ -6,11 +6,11 @@ import { styled } from '@mui/system';
 const StyledFormControl = styled(FormControl)(({ theme, error}) => ({
   '& .MuiInputBase-root': {
     '& fieldset': {
-      borderRadius: '10px',
-      borderColor: error ? '#780000' : '#DFD0B8',
+      borderRadius: '0px',
+      borderColor: error ? '#780000' : '#00c04b',
     },
-    backgroundColor: '#3C5B6F',
-    borderRadius: 10,
+    backgroundColor: '#181F1B',
+    borderRadius: 0,
     '&.Mui-focused fieldset': {
       borderColor: '#DFD0B8',
     },

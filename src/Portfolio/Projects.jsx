@@ -6,23 +6,19 @@ import img from '../assets/hanapp.png';
 import img2 from '../assets/gabay.png';
 import img3 from '../assets/eportal.png';
 
-const Style = {
-  backdropFilter: 'blur(16px) saturate(180%)',
-  WebkitBackdropFilter: 'blur(16px) saturate(180%)',
-  backgroundColor: 'rgba(17, 25, 40, 0.75)',
-  borderRadius: '10px',
-  border: '1px solid rgba(255, 255, 255, 0.125)',
-  boxShadow: '5px -4px 1px rgb(173, 173, 172)',
-};
 
-// Define the pop-up animation variant
-const popUp = {
-  hidden: { opacity: 0, x: "-25vw" },
-  visible: { opacity: 1, x: 0 }
-};
-const popUp2 = {
-  hidden: { opacity: 0, x: "100vw" },
-  visible: { opacity: 1, x: 0 }
+const fadeInUp = {
+  hidden: { opacity: 0, scale: 0.5, y: 50 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      delay: i * 0.7, // delays each by 0.2s
+      ease: 'easeOut',
+    },
+  }),
 };
 
 // Define the container animation variant for sequential appearance
@@ -37,65 +33,62 @@ const containerVariants = {
   }
 };
 
-const ProjectItem = ({ image, title, description, technologies, link }) => {
-  const [ref, inView] = useInView({ threshold: 0.1 });
+const ProjectItem = ({ image, title, description, technologies, link, index, inView, status }) => {
+  const isActive = status === 'Active';
+
   return (
     <motion.div
-      ref={ref}
-      className='flex flex-col sm:flex-row my-5 items-center sm:items-start'
-      variants={popUp}
+      custom={index}
+      variants={fadeInUp}
       initial="hidden"
-      animate={inView ? "visible" : "hidden"}
-      transition={{ duration: 1 }}
+      animate={inView ? 'visible' : 'hidden'}
+      className="bg-[#181F1B] rounded-md shadow-md border border-[#2a2a2a] p-5 flex flex-col w-full"
     >
-      <motion.img 
-        src={image} 
-        alt={title} 
-        className="h-44 w-44 p-5 rounded-lg ml-0 sm:ml-10 img mr-0 sm:mr-10" 
-        style={Style}
-        variants={popUp}
-        transition={{ duration: 1.5 }}
-      />
-      <div className='flex flex-col items-center sm:items-start'>
-        <motion.a 
-          href={link} 
-          target="_blank" 
-          rel="noopener noreferrer" 
-          className='text-4xl sm:text-5xl text-center sm:text-start hover' 
-          style={{ color: '#DFD0B8' }}
-          variants={popUp}
-          transition={{ duration: 1.8 }}
+      <div className="flex flex-col items-center text-center">
+        <img
+          src={image}
+          alt={title}
+          className="h-24 w-32 sm:h-32 sm:w-36 md:h-44 md:w-48 object-contain rounded-lg mb-5"
+        />
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-2xl font-semibold text-[#00c04b] hover:underline mb-2"
         >
           {title}
-        </motion.a>
-        <motion.p 
-          className='text-3xl text-center sm:text-start' 
-          style={{ color: '#948979' }}
-          variants={popUp}
-          transition={{ duration: 1.5 }}
-        >
-          {description}
-        </motion.p>
-        <div className='flex flex-wrap justify-center mt-5'>
-          {technologies.map((tech, index) => (
-            <motion.a 
-              key={index} 
-              href={tech.link} 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className='text-2xl p-2 rounded-full w-44 text-center btn mx-2 mb-2' 
-              style={{ color: '#DFD0B8', borderWidth: '1px', borderColor: '#DFD0B8'}}
-              variants={popUp2}
-              transition={{ duration: 1.5 + (index * 0.1) }}
-            >
-              {tech.name}
-            </motion.a>
-          ))}
+        </a>
+        <p className="text-[#DFD0B8] text-base mb-4">{description}</p>
+
+        <div className="w-full">
+          <p className="text-[#00c04b] font-medium mb-2">Technologies:</p>
+          <div className="flex flex-wrap justify-center gap-2">
+            {technologies.map((tech, i) => (
+              <a
+                key={i}
+                href={tech.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-3 py-1 border border-[#DFD0B8] text-[#DFD0B8] rounded-full text-sm hover:bg-[#00c04b]/10 transition"
+              >
+                {tech.name}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
+
+      {/* Status Badge */}
+      <div className="flex mt-auto justify-end pt-5">
+        <div className="text-xs  text-[#DFD0B8]">
+          Status:<span className={`ml-2 ${isActive ? 'text-green-400' : 'text-red-400'}`}>{status}</span>
+        </div>
+      </div>
+
     </motion.div>
   );
 };
+
 
 function Projects() {
   const [sectionRef, inView] = useInView({ threshold: 0.1 });
@@ -104,74 +97,84 @@ function Projects() {
     {
       image: img,
       title: 'Hanapp',
-      description: 'A job finder application for graduating college students',
+      description: 'A job finder application that targets a graduating college students.',
       technologies: [
         { name: 'React Native', link: 'https://github.com/Morphmorph/hanapp-front-end' },
         { name: 'Django', link: 'https://github.com/Morphmorph/hanapp-back-end' },
-        { name: 'MySQL', link: 'https://github.com/Morphmorph/hanapp-back-end' }
+        { name: 'MySQL', link: 'https://github.com/Morphmorph/hanapp-back-end' },
       ],
-      link: 'https://github.com/Morphmorph/hanapp-front-end'
+      link: 'https://github.com/Morphmorph/hanapp-front-end',
+      status: 'Inactive',
     },
     {
       image: img2,
       title: 'Gabay',
-      description: 'A mobile application that predicts future Savings using time series forecasting with Weighted Moving Average (WMA)',
+      description: 'A mobile app predicting savings using Weighted Moving Average forecasting.',
       technologies: [
         { name: 'React Native', link: 'https://github.com/Morphmorph/gabay-front-end' },
         { name: 'Django', link: 'https://github.com/Morphmorph/gabay-back-end' },
-        { name: 'SQLite', link: 'https://github.com/Morphmorph/gabay-back-end' }
+        { name: 'SQLite', link: 'https://github.com/Morphmorph/gabay-back-end' },
       ],
-      link: 'https://github.com/Morphmorph/gabay-front-end'
+      link: 'https://github.com/Morphmorph/gabay-front-end',
+      status: 'Active',
     },
     {
       image: img3,
       title: 'COCS E-Portal',
-      description: 'A website portal for teachers, students, and admin for easy access to school matters, grades, and attendance.',
+      description: 'A portal for teachers, students, and admins for grades and attendance.',
       technologies: [
         { name: 'React JS', link: 'https://github.com/Morphmorph/e-portal/tree/dev' },
         { name: 'Django', link: 'https://github.com/Morphmorph/e-portal-backend' },
-        { name: 'SQLite', link: 'https://github.com/Morphmorph/e-portal-backend' }
+        { name: 'SQLite', link: 'https://github.com/Morphmorph/e-portal-backend' },
       ],
-      link: 'https://github.com/Morphmorph/e-portal/tree/dev'
-    }
+      link: 'https://github.com/Morphmorph/e-portal/tree/dev',
+      status: 'Inactive',
+    },
   ];
 
   return (
-    <motion.section
+    <section
       id="projects"
-      className='flex flex-col justify-center w-full items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'
+      className="flex relative flex-col min-h-full"
       ref={sectionRef}
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
     >
-      <SlightFlip 
-        text="PROJECTS" 
-        className="text-5xl sm:text-7xl uppercase"
-        style={{ color: '#DFD0B8' }}
-        animate={inView ? "visible" : "hidden"}
-        initial="hidden"
+
+  <div className='flex flex-col mx-0 my-5 md:mx-20 p-5  min-h-full pb-10 rounded-xl box-border '>
+       
+      <div className="flex flex-row justify-center xxl:justify-end uppercase ">
+        <p className="text-2xl md:text-4xl text-[#DFD0B8] mr-2">My</p>
+        <span className="text-2xl md:text-4xl font-semibold text-[#00c04b]">Works</span>
+      </div>
+  <hr className="my-2 h-px border-0 bg-gradient-to-l from-transparent via-[#00c04b] to-transparent xxl:from-[#00c04b]  xxl:to-transparent " />
+
+  <motion.div
+    className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8 mt-10 w-full max-w-[1280px]"
+    variants={containerVariants}
+    initial="hidden"
+    animate={inView ? 'visible' : 'hidden'}
+  >
+    {projects.map((project, index) => (
+      <ProjectItem
+        key={index}
+        image={project.image}
+        title={project.title}
+        description={project.description}
+        technologies={project.technologies}
+        link={project.link}
+        index={index}
+        inView={inView}
+        status={project.status}
       />
-      <motion.div
-        className='flex flex-col w-full justify-center items-start mt-10 p-2'
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-      >
-        {projects.map((project, index) => (
-          <ProjectItem
-            key={index}
-            image={project.image}
-            title={project.title}
-            description={project.description}
-            technologies={project.technologies}
-            link={project.link}
-            sectionRef={sectionRef}  // Pass sectionRef to ProjectItem
-            inView={inView}
-          />
-        ))}
-      </motion.div>
-    </motion.section>
+
+    ))}
+  </motion.div>
+  </div>
+</section>
+
   );
 }
+
 
 export default Projects;

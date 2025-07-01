@@ -1,14 +1,21 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from './component/CustomUseinView';
-import { SlightFlip } from './component/CustomSlightFlip';
-import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
-import { Link } from 'react-scroll';
+import img from '../assets/profile.jpg';
 
 // Define the fade-in-up and pop-up animation variant
 const fadeInUp = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: { opacity: 5, scale: 1}
+  hidden: { opacity: 0, scale: 0.5, y: 50 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: {
+      duration: 0.4,
+      delay: i * 0.7, // delays each by 0.2s
+      ease: 'easeOut',
+    },
+  }),
 };
 
 const popUp = {
@@ -29,111 +36,134 @@ const containerVariants = {
 };
 
 function About() {
-  const [sectionRef, inView] = useInView({ threshold: 0.1 });
+  const [sectionRef, inView] = useInView({ threshold: 0.3 });
   const [linksRef, linksInView] = useInView({ threshold: 0.1 });
+  const [cardsRef, cardsInView] = useInView({ threshold: 0.2 });
+
+  const cardData = [
+  {
+    title: 'Web Development',
+    description: 'Creating clean, responsive websites with a focus on clarity and usability.',
+    stacks: ['HTML', 'CSS', 'JavaScript', 'React', 'Tailwind CSS', 'Django', 'SQLite', 'MYSQL'],
+    tools: ['VS Code', 'Git & GitHub', 'Chrome DevTools','Postman'],
+  },
+  {
+    title: 'App Development',
+    description: 'Building impactful and efficient apps tailored to real-world needs.',
+    stacks: ['React Native', 'Node.js', 'Firebase', 'SQLite', 'Django', 'MYSQL'],
+    tools: ['VS Code', 'Git & GitHub', 'Postman', 'Expo Go'],
+  },
+  {
+    title: 'UI/UX Design',
+    description: 'Designing intuitive interfaces that enhance user experience and engagement.',
+    tools: ['Figma', 'Trello', 'Photoshop', 'Sketch', 'Framer'],
+  },
+];
+
 
   return (
-    <motion.section
+    <section
       id="about"
-      className='flex flex-col items-center p-5 xl:p-0 min-h-full my-0 sm:my-24'
-      ref={sectionRef}
+      className="flex relative flex-col min-h-full"
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
     >
-      <SlightFlip 
-        text="ABOUT" 
-        className="text-5xl sm:text-7xl uppercase"
-        style={{ color: '#DFD0B8' }}
-        animate={inView ? "visible" : "hidden"}
-        initial="hidden"
-      />
-
+      {/* <div className='h-1/2 w-screen bg-red-500 flex absolute'>
+      </div> */}
+      <div className='flex flex-col m-5 md:m-20 p-5 bg-stone-950/20 min-h-full pb-10 rounded-xl box-border shadow-lg'>
+       
+      <div className="flex flex-row justify-center xxl:justify-start uppercase ">
+        <p className="text-2xl md:text-4xl text-[#DFD0B8] mr-2">About</p>
+        <span className="text-2xl md:text-4xl font-semibold text-[#00c04b]">Me</span>
+      </div>
+      <div className="relative  items-center justify-center">
+       <div className="gradient-circle"></div>
+      <hr className="my-2 h-px border-0 bg-gradient-to-r from-transparent via-[#00c04b] to-transparent xxl:from-[#00c04b]  xxl:to-transparent " />
       <motion.div
-        className='flex text-center p-5'
+        className='flex flex-col xl:flex-row items-center justify-center gap-10 xxl:gap-20 
+                  w-full max-w-[1280px] mx-auto px-5 pt-10 '
         variants={fadeInUp}
         initial="hidden"
+        ref={sectionRef}
         animate={inView ? "visible" : "hidden"}
         transition={{ duration: 1 }}
       >
-        <p className='text-4xl sm:text-5xl' style={{ color: '#948979' }}>
-          I'm enthusiastic about venturing into web & mobile application development, with a strong desire to bring creative ideas to life. I'm motivated by the prospect of turning concepts into meaningful projects.
-        </p>
-      </motion.div>
+        <img
+          src={img}
+          alt="Profile"
+          className="rounded-full border-4 border-[#00c04b] h-64 w-64 md:h-96 md:w-96 object-cover"
+        />
 
-      <motion.div
-        className='flex flex-col sm:flex-row w-full h-full justify-around items-center'
-        variants={containerVariants}
-        initial="hidden"
-        animate={inView ? "visible" : "hidden"}
-        ref={linksRef}
-      >
-        <motion.div
-          variants={popUp}
-          initial="hidden"
-          animate={linksInView ? "visible" : "hidden"}
-          transition={{ duration: 1 }}
-          className='flex items-center rounded-lg h-24 w-full sm:w-48'
-        >
-          <Link
-            to="exp"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className='flex items-center rounded-lg h-24 w-full sm:w-48 p-5 nav-bar nav-option'
-            style={{ textDecoration: 'none', color: '#153448' }}
-          >
-            <h1 className='text-7xl mr-5 sm:mr-2' style={{ color: '#DFD0B8' }}>1</h1>
-            <p className='text-2xl font-semibold' style={{ color: '#153448' }}>Year(s) of experience</p>
-            <ArrowCircleUpIcon className='absolute right-0 bottom-0 m-1 icon' sx={{ fontSize: 40, color: '#DFD0B8' }} />
-          </Link>
-        </motion.div>
-        
-        <motion.div
-          variants={popUp}
-          initial="hidden"
-          animate={linksInView ? "visible" : "hidden"}
-          transition={{ duration: 1.5 }}
-          className='flex items-center rounded-lg h-24 w-full sm:w-48 my-5 sm:my-0'
-        >
-          <Link
-            to="master"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className='flex items-center rounded-lg h-24 w-full sm:w-48 p-5  nav-bar nav-option'
-            style={{ textDecoration: 'none', color: '#153448' }}
-          >
-            <h1 className='text-7xl mr-5 sm:mr-2' style={{ color: '#DFD0B8' }}>5</h1>
-            <p className='text-2xl font-semibold' style={{ color: '#153448' }}>Technology mastered</p>
-            <ArrowCircleUpIcon className='absolute right-0 bottom-0 m-1 icon' sx={{ fontSize: 40, color: '#DFD0B8' }} />
-          </Link>
-        </motion.div>
-        
-        <motion.div
-          variants={popUp}
-          initial="hidden"
-          animate={linksInView ? "visible" : "hidden"}
-          transition={{ duration: 2 }}
-          className='flex items-center rounded-lg h-24 w-full sm:w-48'
-        >
-          <Link
-            to="projects"
-            spy={true}
-            smooth={true}
-            offset={-70}
-            duration={500}
-            className='flex items-center rounded-lg h-24 w-full sm:w-48 p-5 nav-bar nav-option'
-            style={{ textDecoration: 'none', color: '#153448' }}
-          >
-            <h1 className='text-7xl mr-5 sm:mr-2' style={{ color: '#DFD0B8' }}>3</h1>
-            <p className='text-2xl font-semibold' style={{ color: '#153448' }}>Projects completed</p>
-            <ArrowCircleUpIcon className='absolute right-0 bottom-0 m-1 icon' sx={{ fontSize: 40, color: '#DFD0B8' }} />
-          </Link>
-        </motion.div>
+        <div className='w-auto text-left'>
+          <h1 className='my-2 text-[#00c04b] text-2xl md:text-3xl'>Hello World,</h1>
+          <p className='text-xl md:text-2xl text-[#DFD0B8]'>
+             &emsp;&emsp;Hi, I’m Rickne Arohn Pacana, a BSIT graduate at USTP with a strong passion for web and app development.
+            I specialize in technologies like React.js, React Native, Django, Figma, HTML, CSS, and JavaScript.
+            I enjoy building responsive, user-friendly interfaces and functional applications that solve real-world problems.
+            <br/><br/>
+             &emsp;&emsp;I'm constantly exploring new tools and best practices to improve my development workflow. I love learning,
+            taking on new challenges, and collaborating with fellow developers. Feel free to check out some of my projects
+            below, and don’t hesitate to reach out if you have any questions or feedback!
+          </p>
+        </div>
       </motion.div>
-    </motion.section>
+      </div>
+      <hr className="my-2 h-px border-0 bg-gradient-to-r from-transparent to-transparent " />
+      <hr className="mt-10 my-2 h-px border-0 bg-gradient-to-r from-transparent via-[#00c04b] to-transparent " />
+      <h1 className="text-2xl md:text-3xl text-[#DFD0B8] mr-2 text-center">Others</h1>
+      <hr className="my-2 h-px border-0 bg-gradient-to-r from-transparent via-[#00c04b] to-transparent " />
+      
+      <div
+        ref={cardsRef}
+        className='flex flex-col xxl:flex-row gap-y-10 xxl:gap-x-16  
+                  w-auto justify-center relative mt-10 xxl:mx-0 '
+      >
+        {cardData.map((card, index) => (
+          <motion.div
+          key={index}
+          custom={index}
+          variants={fadeInUp}
+          initial="hidden"
+          animate={cardsInView ? "visible" : "hidden"}
+          className="relative flex flex-col bg-[#181F1B] min-h-auto w-full rounded-md p-6 gap-4 shadow-lg "
+        >
+          <div className="text-center">
+            <h1 className="text-2xl font-semibold text-[#00c04b] mb-2">{card.title}</h1>
+            <p className="text-lg text-[#DFD0B8]">{card.description}</p>
+          </div>
+
+          <div className="text-sm text-[#B0AFAF] mt-4">
+            {/* Show stacks only if the card is NOT UI/UX Design */}
+            {card.title !== 'UI/UX Design' && card.stacks && (
+              <>
+                <p className="font-semibold text-[#00c04b]">Stacks:</p>
+                <ul className="flex flex-wrap justify-center gap-2 mt-1">
+                  {card.stacks.map((stack, i) => (
+                    <li key={i} className="bg-[#2A2F2C] px-3 py-1 rounded-full">{stack}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+
+            {/* Always show tools */}
+            {card.tools && (
+              <>
+                <p className="font-semibold text-[#00c04b] mt-4">Tools:</p>
+                <ul className="flex flex-wrap justify-center gap-2 mt-1">
+                  {card.tools.map((tool, i) => (
+                    <li key={i} className="bg-[#2A2F2C] px-3 py-1 rounded-full">{tool}</li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        </motion.div>
+
+        ))}
+      </div>
+      </div>
+      
+    </section>
   );
 }
 
