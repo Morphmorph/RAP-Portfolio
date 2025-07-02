@@ -146,7 +146,7 @@ const Contact = () => {
       initial="hidden"
       animate={inView ? "visible" : "hidden"}
     >
-      <div className='flex flex-col mx-0 my-5 md:mx-20 p-5  min-h-full pb-10 rounded-xl'>
+      <div className='flex flex-col mx-0 my-5 md:mx-20 p-5 min-h-full pb-10 rounded-xl'>
       <div className="flex flex-row justify-center xxl:justify-start uppercase ">
         <p className="text-2xl md:text-4xl text-[#DFD0B8] mr-2">Hire</p>
         <span className="text-2xl md:text-4xl font-semibold text-[#00c04b]">Me</span>
@@ -156,15 +156,15 @@ const Contact = () => {
        <hr className="my-2 h-px border-0 bg-gradient-to-r from-transparent via-[#00c04b] to-transparent xxl:from-[#00c04b]  xxl:to-transparent " />
       
       <motion.div
-        className='flex flex-col-reverse lg:flex-row justify-center items-center w-full '
+        className='flex flex-col-reverse xl:flex-row items-center w-full '
         variants={popUp}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
         transition={{ duration: 1 }}
       >
-        <div className='mx-14 xl:mx-24'></div>
+       
         <motion.div
-          className='flex flex-col w-full lg:w-1/2 contact m-5 '
+          className='flex flex-col w-full xl:w-1/2 contact m-5 '
           style={{backgroundColor: 'transparent', borderWidth: 0,}}
           ref={formRef}
           variants={popUp}
@@ -217,15 +217,7 @@ const Contact = () => {
             />
           </div>
           <div className='w-auto flex justify-center md:justify-end'>
-            <motion.div
-                custom={0}
-                variants={popUp}
-                initial="hidden"
-                animate="visible"
-                whileHover={{ scale: 1.04 }}
-                whileTap={{ scale: 1 }}
-                transition={{ duration: 0.4, type: 'spring', stiffness: 300 }}
-              >
+            
             <button
               className='border-2 py-2 px-3 rounded-md flex flex-row items-center justify-center btn text-[#DFD0B8] border-[#DFD0B8]'
               style={{
@@ -250,20 +242,20 @@ const Contact = () => {
                 </>
               )}
             </button>
-            </motion.div>
+            
           </div>
         </motion.div>
-        <div className='mx-0 lg:mx-14'></div>
-        <div className='flex flex-wrap lg:flex-col justify-start w-full lg:w-1/2 items-start mt-10 xl:mt-0'>
+        <div className='ml-0 lg:ml-28'></div>
+        <div className='flex flex-wrap xl:flex-col justify-start w-fit xl:w-1/2  items-center xl:items-start mt-5 xl:mt-0'>
           <motion.div 
-            className='flex flex-row-reverse mr-5 lg:mr-0'
+            className='flex flex-row-reverse mr-5 xl:mr-0'
             ref={infoRef}
             variants={popUp2}
             initial="hidden"
             animate={infoInView ? "visible" : "hidden"}
             transition={{ duration: 1.2 }}
           >
-            <h1 className='text-lg sm:text-2xl' style={{ color: '#DFD0B8' }}>Baungon, Bukidnon, 8707</h1>
+            <h1 className='text-lg sm:text-2xl' style={{ color: '#DFD0B8' }}>Baungon, Bukidnon</h1>
             <LocationOnIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
           </motion.div>
           <motion.div 

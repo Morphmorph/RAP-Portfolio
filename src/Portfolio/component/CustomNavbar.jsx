@@ -17,12 +17,22 @@ const CustomNavbar = ({scrollToTop}) => {
         {/* Right Side Links */}
         <div className='flex flex-row items-center gap-x-4'>
             <Link
+                to="home"
+                spy={true}
+                smooth={true}
+                offset={-100}
+                duration={500}
+                className="nav-link nav-option text-sm sm:text-xl p-1 text-[#DFD0B8]"
+            >
+                Home
+            </Link>
+            <Link
                 to="about"
                 spy={true}
                 smooth={true}
                 offset={-20}
                 duration={500}
-                className="nav-link nav-option text-md sm:text-xl p-1 text-[#DFD0B8]"
+                className="nav-link nav-option text-sm sm:text-xl p-1 text-[#DFD0B8]"
             >
                 About
             </Link>
@@ -30,9 +40,9 @@ const CustomNavbar = ({scrollToTop}) => {
                 to="projects"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-40}
                 duration={500}
-                className="nav-link nav-option text-md sm:text-xl p-1 text-[#DFD0B8]"
+                className="nav-link nav-option text-sm sm:text-xl p-1 text-[#DFD0B8]"
             >
                 Projects
             </Link>
@@ -40,9 +50,9 @@ const CustomNavbar = ({scrollToTop}) => {
                 to="hire-me"
                 spy={true}
                 smooth={true}
-                offset={-70}
+                offset={-40}
                 duration={500}
-                className="nav-link nav-option text-md sm:text-xl p-1 text-[#DFD0B8]"
+                className="nav-link nav-option text-sm sm:text-xl p-1 text-[#DFD0B8]"
             >
                 Contact
             </Link>

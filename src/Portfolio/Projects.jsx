@@ -58,7 +58,7 @@ const ProjectItem = ({ image, title, description, technologies, link, index, inV
         >
           {title}
         </a>
-        <p className="text-[#DFD0B8] text-base mb-4">{description}</p>
+        <p className="text-[#DFD0B8] text-base mb-4 capitalize">{description}</p>
 
         <div className="w-full">
           <p className="text-[#00c04b] font-medium mb-2">Technologies:</p>
@@ -97,7 +97,7 @@ function Projects() {
     {
       image: img,
       title: 'Hanapp',
-      description: 'A job finder application that targets a graduating college students.',
+      description: 'A mobile application designed to help graduating college students find job opportunities.',
       technologies: [
         { name: 'React Native', link: 'https://github.com/Morphmorph/hanapp-front-end' },
         { name: 'Django', link: 'https://github.com/Morphmorph/hanapp-back-end' },
@@ -109,7 +109,7 @@ function Projects() {
     {
       image: img2,
       title: 'Gabay',
-      description: 'A mobile app predicting savings using Weighted Moving Average forecasting.',
+      description: ' A Mobile Application that Predict Future Savings Using the Time Series Forecasting with Weighted Moving Average (WMA)',
       technologies: [
         { name: 'React Native', link: 'https://github.com/Morphmorph/gabay-front-end' },
         { name: 'Django', link: 'https://github.com/Morphmorph/gabay-back-end' },
@@ -121,7 +121,7 @@ function Projects() {
     {
       image: img3,
       title: 'COCS E-Portal',
-      description: 'A portal for teachers, students, and admins for grades and attendance.',
+      description: 'A platform for teachers and students to manage grades and track attendance.',
       technologies: [
         { name: 'React JS', link: 'https://github.com/Morphmorph/e-portal/tree/dev' },
         { name: 'Django', link: 'https://github.com/Morphmorph/e-portal-backend' },
