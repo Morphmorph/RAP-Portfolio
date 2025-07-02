@@ -154,7 +154,7 @@ const Home = () => {
               </motion.div>
 
               {/* Social Icons as a row in small screens, wrap on large */}
-              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0 w-auto mx-auto">
+              <div className="flex flex-row flex-wrap justify-center items-center gap-2 mt-5 sm:mt-0 w-full sm:w-auto mx-auto">
 
               {socialItems.map((item, index) => {
               if (item.type === 'icon') {
@@ -165,7 +165,6 @@ const Home = () => {
                     variants={fadeInUp}
                     initial="hidden"
                     animate={isSocialVisible ? 'visible' : 'hidden'}
-                    layout="position"
                   >
                     <motion.div
                       whileHover={{ scale: 1.08 }}
@@ -177,12 +176,12 @@ const Home = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                          height: 46.1,
-                          width: 46.1,
+                          height: 46,
+                          width: 46,
                         }}
                         bgColor="transparent"
                         fgColor="#DFD0B8"
-                        className="item-div"
+                        className="item-div min-w-[46px]"
                       />
                     </motion.div>
                   </motion.div>
@@ -216,7 +215,7 @@ const Home = () => {
                       }}
                       bgColor="transparent"
                       fgColor="#DFD0B8"
-                      className='item-div' />
+                      className='item-div min-w-[46px]' />
                     </motion.div>
                   </motion.div>
                 );
