@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/RAP-Portfolio/static/css/main.ff17eb75.css",
-    "main.js": "/RAP-Portfolio/static/js/main.c797cfcb.js",
+    "main.css": "/RAP-Portfolio/static/css/main.44ecdadc.css",
+    "main.js": "/RAP-Portfolio/static/js/main.47c4d6d7.js",
     "static/js/453.41811d64.chunk.js": "/RAP-Portfolio/static/js/453.41811d64.chunk.js",
     "static/media/bimg.png": "/RAP-Portfolio/static/media/bimg.a98cf3b9378dad92634b.png",
     "static/media/profile.jpg": "/RAP-Portfolio/static/media/profile.7c6b5380e207771a0826.jpg",
@@ -9,12 +9,12 @@
     "static/media/hanapp.png": "/RAP-Portfolio/static/media/hanapp.682f67b5c9bd18619c80.png",
     "static/media/gabay.png": "/RAP-Portfolio/static/media/gabay.f2de58fb4f236f7475f2.png",
     "index.html": "/RAP-Portfolio/index.html",
-    "main.ff17eb75.css.map": "/RAP-Portfolio/static/css/main.ff17eb75.css.map",
-    "main.c797cfcb.js.map": "/RAP-Portfolio/static/js/main.c797cfcb.js.map",
+    "main.44ecdadc.css.map": "/RAP-Portfolio/static/css/main.44ecdadc.css.map",
+    "main.47c4d6d7.js.map": "/RAP-Portfolio/static/js/main.47c4d6d7.js.map",
     "453.41811d64.chunk.js.map": "/RAP-Portfolio/static/js/453.41811d64.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ff17eb75.css",
-    "static/js/main.c797cfcb.js"
+    "static/css/main.44ecdadc.css",
+    "static/js/main.47c4d6d7.js"
   ]
 }
