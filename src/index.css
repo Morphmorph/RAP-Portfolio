@@ -4,6 +4,17 @@
 
 
 
+#root::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 5px;
+}
+
+#root::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background: #00c04b;
+  border-radius: 6px;
+}
+
 body {
   margin: 0;
   font-family: "Barlow Condensed", sans-serif;
@@ -29,13 +40,4 @@ code {
 
 iframe#webpack-dev-server-client-overlay{
   display:none!important
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #00c04b;
-  border-radius: 6px;
 }
