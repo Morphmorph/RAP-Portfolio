@@ -177,8 +177,8 @@ const Home = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                          height: 46,
-                          width: 46,
+                          height: 46.1,
+                          width: 46.1,
                         }}
                         bgColor="transparent"
                         fgColor="#DFD0B8"
@@ -211,8 +211,8 @@ const Home = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        height: 46.5,
-                        width: 46.5,
+                        height: 46,
+                        width: 46,
                       }}
                       bgColor="transparent"
                       fgColor="#DFD0B8"
