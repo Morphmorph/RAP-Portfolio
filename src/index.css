@@ -30,3 +30,12 @@ code {
 iframe#webpack-dev-server-client-overlay{
   display:none!important
 }
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #00c04b;
+  border-radius: 6px;
+}

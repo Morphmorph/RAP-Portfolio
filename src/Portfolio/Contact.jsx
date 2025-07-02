@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { SlightFlip } from './component/CustomSlightFlip';
 import { useInView } from './component/CustomUseinView';
 import emailjs from 'emailjs-com';
 import CustomTextField from './component/CustomTextField';
@@ -8,7 +7,6 @@ import CustomDropdown from './component/CustomDropdown';
 import CustomTextArea from './component/CustomTextArea';
 import SendIcon from '@mui/icons-material/Send';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import CircularProgress from '@mui/material/CircularProgress';
 import { notifySuccess, notifyError } from './component/CustomToastify';
@@ -105,11 +103,11 @@ const Contact = () => {
       const templateParams = {
         name: userData.name,
         email: userData.email,
-        service: userData.service?.label || '', // ✅ Send label
+        service: userData.service?.label || '', // 
         message: userData.message,
       };
 
-      console.log('Sending to EmailJS:', templateParams); // Debug log
+      console.log('Sending to EmailJS:', templateParams); // 
 
       const response = await emailjs.send(
         'service_6oosfz8',

@@ -154,7 +154,7 @@ const Home = () => {
               </motion.div>
 
               {/* Social Icons as a row in small screens, wrap on large */}
-              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0 w-auto">
+              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0 w-auto h-auto mx-auto">
 
               {socialItems.map((item, index) => {
               if (item.type === 'icon') {
@@ -177,8 +177,8 @@ const Home = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                         style={{
-                          height: 48,
-                          width: 48,
+                          height: 46,
+                          width: 46,
                         }}
                         bgColor="transparent"
                         fgColor="#DFD0B8"
@@ -211,8 +211,8 @@ const Home = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        height: 48,
-                        width: 48,
+                        height: 46,
+                        width: 46,
                       }}
                       bgColor="transparent"
                       fgColor="#DFD0B8"
