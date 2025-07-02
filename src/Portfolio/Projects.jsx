@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from './component/CustomUseinView';
-import { SlightFlip } from './component/CustomSlightFlip';
 import img from '../assets/hanapp.png';
 import img2 from '../assets/gabay.png';
 import img3 from '../assets/eportal.png';

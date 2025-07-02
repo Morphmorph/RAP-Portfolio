@@ -33,7 +33,7 @@ const socialItems = [
   { type: 'icon', url: 'https://t.me/ricknearohn' },
 ];
 
-const Home = ({ }) => {
+const Home = () => {
   const [loading, setLoading] = useState(false);
   const [socialRef, isSocialVisible] = useInView({ threshold: 0.2 });
 
@@ -211,8 +211,8 @@ const Home = ({ }) => {
                       target="_blank"
                       rel="noopener noreferrer"
                       style={{
-                        height: 45,
-                        width: 45,
+                        height: 48,
+                        width: 48,
                       }}
                       bgColor="transparent"
                       fgColor="#DFD0B8"
@@ -244,7 +244,7 @@ const Home = ({ }) => {
                 <p className='text-4xl md:text-5xl font-medium text-[#DFD0B8]'>Based in Bukidnon & CDO City</p>
                 <span className='text-4xl md:text-5xl font-medium text-[#DFD0B8]'>I'm a Developer & UI/UX Designer Enthusiast.</span>
                 <span className='mt-10 text-lg md:text-xl font-medium text-[#DFD0B8]'>
-                  Are you looking for a front-end developer, a designer to build your brand? <br />
+                  Are you looking for a web or app developer, a designer to build your brand? <br />
                   Let’s connect and see how I can help you.
                 </span>
               </div>
