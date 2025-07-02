@@ -154,7 +154,7 @@ const Home = () => {
               </motion.div>
 
               {/* Social Icons as a row in small screens, wrap on large */}
-              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0 w-full max-w-[300px] mx-auto">
+              <div className="flex flex-row flex-wrap justify-center items-center gap-3 mt-5 sm:mt-0 w-auto">
 
               {socialItems.map((item, index) => {
               if (item.type === 'icon') {
