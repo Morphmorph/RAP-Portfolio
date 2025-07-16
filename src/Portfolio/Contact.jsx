@@ -253,7 +253,7 @@ const Contact = () => {
             animate={infoInView ? "visible" : "hidden"}
             transition={{ duration: 1.2 }}
           >
-            <h1 className='text-lg sm:text-2xl' style={{ color: '#DFD0B8' }}>Baungon, Bukidnon</h1>
+            <h1 className='text-lg sm:text-2xl' style={{ color: '#DFD0B8' }}>CDO & Bukidnon</h1>
             <LocationOnIcon className='mr-2' sx={{ fontSize: 30, color: '#DFD0B8' }} />
           </motion.div>
           <motion.div 
