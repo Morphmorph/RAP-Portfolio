@@ -115,7 +115,7 @@ function Projects() {
         { name: 'SQLite', link: 'https://github.com/Morphmorph/gabay-back-end' },
       ],
       link: 'https://github.com/Morphmorph/gabay-front-end',
-      status: 'Active',
+      status: 'Inactive',
     },
     {
       image: img3,
